@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Space Grotesk", sans-serif;
+
+  --color-background-base: var(--background-base);
+  --color-surface-base: var(--surface-base);
+  --color-surface-high: var(--surface-high);
+  --color-primary-base: var(--primary-base);
+  --color-primary-dim: var(--primary-dim);
+  --color-secondary-base: var(--secondary-base);
+  --color-secondary-dim: var(--secondary-dim);
+  --color-tertiary-base: var(--tertiary-base);
+  --color-on-background: var(--on-background);
+  --color-on-surface-variant: var(--on-surface-variant);
+}
+
+@layer base {
+  :root {
+    --background-base: #f8fafc;
+    --surface-base: #ffffff;
+    --surface-high: #f1f5f9;
+    --primary-base: #6e3bd7;
+    --primary-dim: #5c31b3;
+    --secondary-base: #0ea5e9;
+    --secondary-dim: #0284c7;
+    --tertiary-base: #e11d48;
+    --on-background: #0f172a;
+    --on-surface-variant: #64748b;
+  }
+
+  .dark {
+    --background-base: #060e20;
+    --surface-base: #0f1930;
+    --surface-high: #141f38;
+    --primary-base: #ba9eff;
+    --primary-dim: #8455ef;
+    --secondary-base: #53ddfc;
+    --secondary-dim: #40ceed;
+    --tertiary-base: #ff6f7e;
+    --on-background: #dee5ff;
+    --on-surface-variant: #a3aac4;
+  }
+
+  body {
+    @apply bg-background-base text-on-background font-sans transition-colors duration-300;
+    direction: rtl;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface-base/60 backdrop-blur-xl border border-on-background/10 transition-colors duration-300;
+  }
+
+  .neon-glow-primary {
+    box-shadow: 0 0 20px rgba(110, 59, 215, 0.2);
+  }
+
+  .dark .neon-glow-primary {
+    box-shadow: 0 0 20px rgba(186, 158, 255, 0.3);
+  }
+
+  .neon-glow-secondary {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  }
+
+  .dark .neon-glow-secondary {
+    box-shadow: 0 0 20px rgba(83, 221, 252, 0.3);
+  }
+}
